@@ -1,38 +1,36 @@
-export function createCharacterCard() {
+export function createCharacterCard(result) {
   const cardContainer = document.querySelector('[data-js="card-container"]');
+  console.log(result);
 
-  const characterImgSrc = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
+  const characterName = result.name;
+  const characterImg = result.image;
+  const characterStatus = result.status;
+  const characterType = result.type;
+  const characterOccurrences = result.episode.length;
 
-  const characterName = "Rick Sanchez";
+  const characterList = document.createElement("li");
+  characterList.classList.add("card");
 
-  const characterStatus = "Alive";
-  const characterType = "";
-  const characterOccurrences = "51";
+  const characterImageContent = document.createElement("div");
+  characterImageContent.classList.add("card__image-container");
 
-
-  const characterList = document.createElement('li');
-  characterList.classList.add('card');
-
-  const characterImageContent = document.createElement('div');
-  characterImageContent.classList.add('card__image-container');
-
-  const characterImage = document.createElement('img');
-  characterImage.classList.add('card__image');
-  characterImage.src = characterImgSrc;
+  const characterImage = document.createElement("img");
+  characterImage.classList.add("card__image");
+  characterImage.src = characterImg;
   characterImage.alt = characterName;
 
-  const characterImageOpacity = document.createElement('div');
-  characterImageOpacity.classList.add('card__image-gradient')
+  const characterImageOpacity = document.createElement("div");
+  characterImageOpacity.classList.add("card__image-gradient");
 
-  const characterMainContent = document.createElement('div');
-  characterMainContent.classList.add('card__content');
+  const characterMainContent = document.createElement("div");
+  characterMainContent.classList.add("card__content");
 
-  const characterHeadline = document.createElement('h2');
-  characterHeadline.classList.add('card__title');
-  characterHeadline.textContent = characterName
+  const characterHeadline = document.createElement("h2");
+  characterHeadline.classList.add("card__title");
+  characterHeadline.textContent = characterName;
 
-  const characterInfo = document.createElement('dl');
-  characterInfo.classList.add('card__info');
+  const characterInfo = document.createElement("dl");
+  characterInfo.classList.add("card__info");
 
   characterInfo.innerHTML = `
   <dt class="card__info-title">Status</dt>
@@ -52,6 +50,4 @@ export function createCharacterCard() {
   characterMainContent.append(characterInfo);
 
   cardContainer.append(characterList);
-
-
 }
