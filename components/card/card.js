@@ -1,6 +1,5 @@
 export function createCharacterCard(result) {
   const cardContainer = document.querySelector('[data-js="card-container"]');
-  console.log(result);
 
   const characterName = result.name;
   const characterImg = result.image;
